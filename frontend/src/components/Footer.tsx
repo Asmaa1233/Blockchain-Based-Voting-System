@@ -1,13 +1,18 @@
-import React from "react";
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
 const Footer = () => {
   return (
-    <footer
-      style={{ paddingBottom: 20, paddingTop: 50, textAlign: "center" }}
-      className="text-normal"
-    >
-      <div>Copyright © 2022 BBVS. All rights reserved.</div>
-    </footer>
+
+    <Typography variant="body2" color="text.secondary" align="center" padding={5} >
+      {'Copyright © '}
+      <Link color="inherit" href="" sx={{ letterSpacing: '0.08em' }}>
+        BCoC
+      </Link>{', Inc '}
+      {new Date().getFullYear()}
+      {'. All Rights Reserved'}
+    </Typography>
+
   );
 };
 

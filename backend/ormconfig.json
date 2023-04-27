@@ -2,9 +2,9 @@
   "type": "mysql",
   "host": "localhost",
   "port": 3306,
-  "username": "bbvs",
-  "password": "Password$$",
-  "database": "bbvs",
+  "username": "bcoc",
+  "password": "Password00$$",
+  "database": "bcoc",
   "synchronize": false,
   "logging": true,
   "cli": {

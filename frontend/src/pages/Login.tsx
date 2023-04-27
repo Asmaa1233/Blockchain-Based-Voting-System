@@ -1,27 +1,71 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router";
+import React, { useState, useContext } from 'react';
 import { Formik } from "formik";
-import { RouteProps } from "react-router";
-import LoginLayout from "../layouts/Login";
 import * as Yup from "yup";
 import axios from "../axios";
 import { AuthContext } from "../contexts/Auth";
 
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+// using Yub library to validate user inputs
 const schema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().min(3).required("Required"),
+  email: Yup.string().email('Invalid email')
+    .test('bcoc', 'Email must be from bcoc domain', value => {
+      if (!value) {
+        return true; 
+      }
+      return value.endsWith('@bcoc.com');
+    })
+    .required('Email is required'),
+  password: Yup.string()
+    .min(8, 'Password must be at least 8 characters')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/^[^#^*()<>=+.]*$/, 'Invalid character found')
+    .required(),
 });
 
-const Login = (props: RouteProps): JSX.Element => {
-  const navigate = useNavigate();
+//////////////////////// Login Page //////////////////////////
+const Login = () => {
   const authContext = useContext(AuthContext);
+  const [error, setError] = useState("");
 
-  const [error, setError] = useState<any>("");
+  const adminEmail = "admin@bcoc.com";
+  const subject = "Credential Request";
+  const body = "Credential request for logging into the BCoC official platform";
+  const href = `mailto:${adminEmail}?subject=${subject}&body=${body}`;
+
+  const theme = createTheme();
 
   return (
-    <div>
-      <LoginLayout error={error}>
-        <div className="form-container">
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar className= "loginicon" >
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
           <Formik
             initialValues={{
               email: "",
@@ -42,55 +86,73 @@ const Login = (props: RouteProps): JSX.Element => {
                 });
             }}
           >
-            {({ errors, touched, getFieldProps, handleSubmit }) => (
-              <form onSubmit={handleSubmit}>
-                <div className="input-container">
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Email"
-                    {...getFieldProps("email")}
+            {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
+              <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.email && Boolean(errors.email)}
+                  helperText={touched.email && errors.email}
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={values.password
+                  }
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.password && Boolean(errors.password)}
+                  helperText={touched.password && errors.password}
                   />
-                  <div className="form-error-text">
-                    {touched.email && errors.email ? errors.email : null}
-                  </div>
-                </div>
-
-                <div className="input-container">
-                  <input
-                    id="password"
-                    type="password"
-                    placeholder="Password"
-                    {...getFieldProps("password")}
+                  <FormControlLabel 
+               
+                  control={<Checkbox  value="remember" color="primary" />}
+                  label="Remember me"
                   />
-                  <div className="form-error-text">
-                    {touched.password && errors.password
-                      ? errors.password
-                      : null}
-                  </div>
-                </div>
-
-                <button className="login-button button-primary" type="submit">
-                  Login
-                </button>
-              </form>
-            )}
-          </Formik>
-
-          <div className="form-info-text">Forgot Password?</div>
-
-          <hr />
-
-          <button
-            onClick={() => navigate("/signup")}
-            className="button-secondary"
-          >
-            Create a New Account
-          </button>
-        </div>
-      </LoginLayout>
-    </div>
-  );
-};
-
-export default Login;
+                  <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  disabled={isSubmitting}
+                  className="LoginBtn"
+                  >
+                  Sign In
+                  </Button>
+                  {error && (
+                  <Typography variant="subtitle1" color="error" align="center">
+                  {error}
+                  </Typography>
+                  )}
+                  <Grid container>
+                  <Grid item>
+                  <Link className ="Loglink" href={href} target="_blank" variant="body2">
+                  {"Don't have an account? Contact us"}
+                  </Link>
+                  </Grid>
+                  </Grid>
+                  </Box>
+                  )}
+                  </Formik>
+                  </Box>
+                  </Container>
+                  </ThemeProvider>
+                  );
+                  };
+                  
+                  export default Login;

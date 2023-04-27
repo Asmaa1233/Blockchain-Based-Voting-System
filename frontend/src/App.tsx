@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer";
 import AuthProvider from "./contexts/Auth";
@@ -8,9 +8,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <CustomRoutes />
+        <div>
+        <CustomRoutes />      
+         <Footer />
+        </div>
       </AuthProvider>
-      <Footer />
     </BrowserRouter>
   );
 };

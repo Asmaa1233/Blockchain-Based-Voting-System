@@ -1,0 +1,133 @@
+.details {
+  background-color: rgb(248, 246, 243);
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  width: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(192, 192, 192);
+  padding-left: 0 !important;
+  margin-left: 16px !important;
+  padding: 30px;
+  margin-top: 20px !important;
+}
+
+.details img {
+  padding: 20px;
+  margin: 40px;
+  width: 100px;
+  height: 100px;
+  margin-right: 60px;
+}
+.details p {
+  line-height: 1.5rem;
+}
+.EVDText {
+  font-family: "Sora", sans-serif !important;
+  color: #29230d;
+}
+
+div.css-bthbmc-MuiPaper-root-MuiAlert-root {
+  margin-top: 40px;
+  background-color: #8d7008;
+  justify-content: center;
+  width: fit-content;
+  align-self: center;
+}
+
+.css-bthbmc-MuiPaper-root-MuiAlert-root {
+  justify-content: center;
+}
+
+.detailsHeadings {
+  padding: 40px 0px 20px 0px; //top right bottom left
+  margin: 0px;
+  color: #29230d;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  // text-align: center;
+  text-shadow: 1px 1px 2px #888888;
+}
+
+.transferForm {
+  background-color: rgb(248, 246, 243);
+  box-shadow: 0 0 3px rgba(192, 192, 192, 0.528);
+}
+div.ant-card {
+  border-radius: 4px !important;
+  border: 1px solid #1c01011f;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.ant-card-body {
+  padding: 20px 20px 0px 20px !important; //top right bottom left
+}
+
+.transferBtn {
+  background-color: #8d7008 !important;
+  border-radius: 3px;
+  height: 30px;
+  margin: -20px 0px 0px 0px; //top right bottom left
+  float: right;
+  color: white;
+}
+
+.transferBtn:hover {
+  background-color: #8d700898 !important;
+}
+
+.transferTableHeaders {
+  color: rgb(12, 10, 10) !important;
+  background-color: #f2f2f1;
+}
+.table {
+  border: 1px solid #bdb9a98a;
+  border-radius: 2px;
+}
+
+.status-green {
+  background-color: rgba(159, 224, 159, 0.521);
+  padding: 4px 6px 4px 6px; //top right bottom left
+  border: rgba(0, 128, 0, 0.26) solid 1px;
+  text-align: center;
+  border-radius: 3px;
+  color: rgb(72, 153, 72);
+  font-weight: 500px;
+}
+
+.status-yellow {
+  background-color: rgba(207, 6, 6, 0.142);
+  padding: 4px 6px 4px 6px; //top right bottom left
+  border: rgba(207, 6, 6, 0.32) solid 1px;
+  text-align: center;
+  border-radius: 3px;
+  color: rgb(186, 18, 18);
+  font-weight: 500px;
+}
+
+.statusBtn {
+  background-color: #8d7008;
+  font-size: 0.875rem !important;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+.statusBtn:hover {
+  background-color: #8d7008a8 !important;
+}
+
+// .radiolabel{
+
+// }
+
+.radio {
+  padding: 15px;
+  color: #29230d;
+}

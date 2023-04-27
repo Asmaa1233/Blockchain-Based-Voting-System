@@ -1,0 +1,56 @@
+
+
+    .EVD {
+        font-weight: bold;
+        text-align: center;
+      }
+      
+      .css-1t6e9jv-MuiCardActions-root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: #8d7008 ;
+        width: auto;
+        height: 21px;    
+        margin-top: 30px;
+        box-shadow: 0 0 10px rgba(58, 40, 5, 0.261) ;
+
+  }
+      
+      .css-1t6e9jv-MuiCardActions-root a {
+        display: flex;
+        align-items: center;
+        position: relative;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 11px;
+        padding:0px 5px 0px 5px ; //top right bottom left
+      }
+      
+      .css-1t6e9jv-MuiCardActions-root a svg {
+        margin-left: 5px;
+        font-weight: 300;
+        font-size: 16px;
+      }
+      
+      .css-8j6b76-MuiInputBase-root-MuiOutlinedInput-root{
+
+
+        background: white;
+        box-shadow: 0 0 10px rgba(87, 87, 87, 0.153) ;
+height: 37px;
+margin: 30px 60px 10px 0px; //top right bottom left
+
+      }
+
+      a.css-tf4nko-MuiButtonBase-root-MuiButton-root  {
+        margin: 30px 0px 10px 5px; //top right bottom left
+        background: rgb(47, 34, 32) !important;
+    }
+
+    a.css-tf4nko-MuiButtonBase-root-MuiButton-root:hover{             
+        background: rgba(31, 19, 19, 0.771);
+        color: white;
+    }

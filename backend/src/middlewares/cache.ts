@@ -9,7 +9,6 @@ export default (duration: number) => {
     if (cache) return res.send(cache);
 
     // if no cache-hit then
-
     const temp = res.send;
 
     const customSendFunction: Send = (body) => {

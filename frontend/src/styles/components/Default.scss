@@ -1,0 +1,123 @@
+// Sidbar styling
+.default-container {
+  min-height: 80vh;
+  display: flex;
+
+  .default-sidebar-container {
+    width: 100px;
+
+    .hamburger {
+      font-size: 1.1rem;
+      color: whitesmoke;
+      padding-left: 20px  ; //top right bottom left
+      cursor: pointer;
+    }
+
+    .default-sidebar {
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 35vw;
+      transition: 0.3s;
+      background-color: rgb(47, 34, 32) ;
+      color: white;
+      font-family: 'Sora', sans-serif ;
+      font-weight: bolder;
+      box-shadow: 0 0 10px rgb(56, 48, 42) ;
+      
+
+      .hamburger {
+        font-size: 1.1rem;
+        color: white;
+        flex-grow: 1;
+        padding-top:10px ;
+      }
+
+      .default-sidebar-link {
+        padding: 0px 30px 0px 20px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+    }
+  }
+  
+
+  .default-container .default-sidebar-container .hamburger{
+    flex-grow: 1;
+  }
+
+  // layout of the content
+  .default-content {
+    flex: 1;
+    padding : 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.display {
+  transform: translateX(0);
+}
+
+.hide {
+  transform: translateX(-800px);
+}
+
+.active {
+  background-color: rgba(56, 50, 50, 0.408) ;
+
+}
+
+
+//// Header styling  
+.default-header {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #cfcccc;
+}
+
+.default-header-left{
+  display: flex;
+  align-items: center; /* align items to center */
+  justify-content: space-between; /* distribute space between two elements */
+  width: 100%;
+  
+}
+
+.page-name {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+  flex-grow: 1; /* expand to fill remaining space */
+  color: #fdfafa;
+  font-family: 'Sora', sans-serif ;
+  letter-spacing: 3px;
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  margin-right: 30px; /* add some margin for spacing */
+}
+
+
+.notification-icon:hover {
+  color: #a8a8b2;
+
+}
+
+.ant-layout-header {
+  padding-inline: 10px;
+  box-shadow: 0px 0px 42px -16px rgb(31, 19, 19);
+  background-color:rgb(47, 34, 32) ;
+}
+
+.default-container .default-sidebar-container {
+  width: 60px;
+}

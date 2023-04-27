@@ -7,15 +7,19 @@ type ContextProps = {
 };
 
 type User = {
-  id: number;
+  index: number;
+  id: string;
   name: string;
-  admin: boolean;
+  role: string;
+  email: string;
 };
 
 export const AuthContext = createContext({
-  id: 0,
+  index: 0,
   name: "",
-  isAdmin: false,
+  id: "",
+  role: "",
+  email: "",
   authenticated: false,
   accessToken: "",
   loading: true,
@@ -27,9 +31,11 @@ export default (props: ContextProps): JSX.Element => {
   const navigate = useNavigate();
 
   const [authentication, setAuthentication] = useState({
-    id: 0,
+    index: 0,
     name: "",
-    isAdmin: false,
+    id: "",
+    role: "",
+    email: "",
     authenticated: false,
     accessToken: "",
     loading: true,
@@ -40,16 +46,13 @@ export default (props: ContextProps): JSX.Element => {
       .post("/auth/check")
       .then((res) => authenticate(res.data.user, res.data.accessToken, false))
       .catch((error) => {
-        console.log(error);
         setAuthentication({ ...authentication, loading: false });
       });
   };
 
   useEffect(() => {
     checkAuthentication();
-
     const interval = setInterval(checkAuthentication, 5 * 1000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -59,9 +62,11 @@ export default (props: ContextProps): JSX.Element => {
     redirect: boolean = true
   ) => {
     setAuthentication({
-      id: user.id,
+      index: user.index,
       name: user.name,
-      isAdmin: user.admin,
+      id: user.id,
+      role: user.role,
+      email: user.email,
       authenticated: true,
       accessToken: token,
       loading: false,
@@ -74,9 +79,11 @@ export default (props: ContextProps): JSX.Element => {
     await axios.post("/auth/logout");
 
     setAuthentication({
-      id: 0,
+      index: 0,
       name: "",
-      isAdmin: false,
+      id: "",
+      role: "",
+      email: "",
       authenticated: false,
       accessToken: "",
       loading: false,
@@ -88,9 +95,11 @@ export default (props: ContextProps): JSX.Element => {
   return (
     <AuthContext.Provider
       value={{
-        id: authentication.id,
+        index: authentication.index,
         name: authentication.name,
-        isAdmin: authentication.isAdmin,
+        id: authentication.id,
+        role: authentication.role,
+        email: authentication.email,
         authenticated: authentication.authenticated,
         accessToken: authentication.accessToken,
         loading: authentication.loading,

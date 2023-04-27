@@ -1,0 +1,45 @@
+.profile-wrapper {
+  @include box-shadow;
+  padding: 50px;
+  display: grid;
+  border-radius: 10px;
+  box-sizing: border-box;
+  column-gap: 100px;
+
+  .left-panel {
+    text-align: center;
+
+    .person-icon {
+      * {
+        font-size: 5rem;
+        color: rgb(47, 34, 32);
+      }
+    }
+
+   
+  }
+
+
+}
+
+.profileName{
+  font-size: large;
+  margin: 30px;
+  margin-top: 10px !important;
+font-weight: bolder;
+color: rgb(47, 34, 32);
+}
+.button-primary{
+  margin-top: 30px;
+  background-color:#8d7008 ;
+  padding: 10px 3px 10px 3px; //top right bottom left
+}
+.button-primary:hover{
+  background-color:#8d700890;
+}
+
+div.text{
+  line-height: 1.5rem;
+  
+}
+
