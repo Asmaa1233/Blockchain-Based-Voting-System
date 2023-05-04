@@ -48,8 +48,8 @@ export const Display = ({ evidenceId, contract }: { evidenceId: number; contract
 
   // turning the stored map cordinates into numbers
   const position = {
-    lng: evidenceInfo ? parseFloat(evidenceInfo.latitude) : 0,
-    lat: evidenceInfo ? parseFloat(evidenceInfo.longitude) : 0,
+    lat: evidenceInfo ? parseFloat(evidenceInfo.latitude) : 0,
+    lng: evidenceInfo ? parseFloat(evidenceInfo.longitude) : 0,
 
   };
 
