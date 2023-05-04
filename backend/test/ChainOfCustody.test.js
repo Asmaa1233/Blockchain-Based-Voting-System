@@ -88,6 +88,5 @@ videnceObj = await contractInstance.createEvidence(
     assert(chain[0].transferId, 1, "Transfer ID is incorrect");
     assert(chain[0].transferSignature, "Signature", "Transfer signature is incorrect");
     assert(chain[0].transferComment, "Comment", "Transfer comment is incorrect");
-    console.log("KING OF CODING IS HERE BC:)");
   });
 });
